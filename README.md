@@ -29,6 +29,13 @@ docker-compose exec api ./node_modules/.bin/adonis migration:run
 - [Angular: 0.0.0.0:3000](http://0.0.0.0:3000)
 - [API Node: 0.0.0.0:3333](http://0.0.0.0:3333/tasks)
 
+API Resources:
+- List:   GET     http://0.0.0.0:3333/tasks
+- Show:   GET     http://0.0.0.0:3333/tasks/{id}
+- Create: POST    http://0.0.0.0:3333/tasks
+- Update: PUT     http://0.0.0.0:3333/tasks/{id}
+- Delete: DELETE  http://0.0.0.0:3333/tasks/{id}
+
 ### Stop
 Run
 
