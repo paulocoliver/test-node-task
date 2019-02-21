@@ -1,0 +1,46 @@
+<div class="loading-shade" *ngIf="isLoadingResults">
+  <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm text-center">
+        <h1>Tasks</h1>
+    </div>
+  </div>
+
+  <ng-container *ngIf="result">
+
+    <div class="row">
+      <div class="col-sm">
+        <mat-form-field appearance="outline">
+          <mat-label>Buscar</mat-label>
+          <mat-icon matPrefix>search</mat-icon>
+          <input type="text" matInput placeholder="" [(ngModel)]="textFilter" (keyup.enter)="filter()">
+        </mat-form-field>
+      </div>
+      <div class="col-sm text-right">
+        <button mat-raised-button color="primary" (click)="create()">Adicionar</button>
+      </div>
+    </div>
+
+    <mat-nav-list #tasksSelected>
+      <mat-list-item class="list-item" *ngFor="let task of result.data" (click)="edit(task)">
+        <div matLine >{{task.task}}</div>
+        <button mat-icon-button (click)="delete(task, $event);" color="warn">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-list-item>
+    </mat-nav-list>
+
+  </ng-container>
+
+  <mat-paginator [style.visibility]="result ? 'visible' : 'hidden'"
+                 [length]=""
+                 [pageSize]="5"
+                 [pageSizeOptions]="[1, 5, 10, 25, 100]">
+  </mat-paginator>
+
+</div>
+
+<!--<router-outlet></router-outlet>-->

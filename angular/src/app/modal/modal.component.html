@@ -1,0 +1,9 @@
+<h1 mat-dialog-title>{{task.id ? 'Edit task' : 'Create task'}}</h1>
+<div mat-dialog-content>
+  <mat-form-field>
+    <input matInput [(ngModel)]="task.task" style="width: 100%;">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button color="primary" (click)="save()" cdkFocusInitial>Salvar</button>
+</div>
